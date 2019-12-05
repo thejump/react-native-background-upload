@@ -96,6 +96,14 @@ export const cancelUpload = (cancelUploadId: string): Promise<boolean> => {
   return NativeModule.cancelUpload(cancelUploadId);
 }
 
+//jgc is this upload still in the queue
+export const uploadExists = (uploadID: string): Promise<boolean> => {
+  if (typeof uploadID !== 'string') {
+    return Promise.reject(new Error('Upload ID must be a string'));
+  }
+  return NativeModule.uploadExists(uploadID);
+}
+
 /*
 Listens for the given event on the given upload ID (resolved from startUpload).  
 If you don't supply a value for uploadId, the event will fire for all uploads.
