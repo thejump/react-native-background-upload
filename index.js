@@ -121,4 +121,4 @@ export const addListener = (eventType: UploadEvent, uploadId: string, listener: 
   })
 }
 
-export default { startUpload, cancelUpload, addListener, getFileInfo }
+export default { startUpload, cancelUpload,uploadExists, addListener, getFileInfo }
