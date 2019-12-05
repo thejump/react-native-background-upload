@@ -298,6 +298,27 @@ public class UploaderModule extends ReactContextBaseJavaModule implements Lifecy
     }
   }
 
+   @ReactMethod
+  public void uploadExists(String uploadID, final Promise promise) {
+    if (!(uploadID instanceof String)) {
+      promise.reject(new IllegalArgumentException("Upload ID must be a string"));
+      return;
+    }
+    try {
+      List<String> tasks= UploadService.getTaskList();
+      
+if (tasks && tasks.contains("cancelUploadId") {
+      promise.resolve(true);
+} else {
+      promise.resolve(false);
+}
+    
+    } catch (Exception exc) {
+      Log.e(TAG, exc.getMessage(), exc);
+      promise.reject(exc);
+    }
+  }
+  
   @Override
   public void onHostResume() {
     if (uploadReceiver != null) {
