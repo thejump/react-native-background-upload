@@ -307,7 +307,7 @@ public class UploaderModule extends ReactContextBaseJavaModule implements Lifecy
     try {
       List<String> tasks= UploadService.getTaskList();
       
-if (tasks && tasks.contains("cancelUploadId") {
+if (tasks && tasks.contains("cancelUploadId")) {
       promise.resolve(true);
 } else {
       promise.resolve(false);
