@@ -2,7 +2,7 @@ package com.vydia.RNUploader;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
@@ -34,6 +34,10 @@ import net.gotev.uploadservice.UploadStatusDelegate;
 import net.gotev.uploadservice.okhttp.OkHttpStack;
 
 import java.io.File;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by stephen on 12/8/16.
@@ -305,14 +309,14 @@ public class UploaderModule extends ReactContextBaseJavaModule implements Lifecy
       return;
     }
     try {
-      List<String> tasks= UploadService.getTaskList();
-      
-if (tasks && tasks.contains("cancelUploadId")) {
+      List <String> tasks= UploadService.getTaskList();
+
+if (tasks!=null && tasks.contains("cancelUploadId")) {
       promise.resolve(true);
 } else {
       promise.resolve(false);
 }
-    
+
     } catch (Exception exc) {
       Log.e(TAG, exc.getMessage(), exc);
       promise.reject(exc);
